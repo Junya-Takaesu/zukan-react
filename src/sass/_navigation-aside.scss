@@ -1,0 +1,85 @@
+@mixin emboss-button($background: orange) {
+  background: linear-gradient(
+    to bottom right,
+    color.scale($background, $lightness: 70%),
+    color.scale($background)
+  );
+  border-bottom: solid 5px color.scale($background, $blackness: 40%);
+  margin: 0 1rem;
+  height: 40px;
+  &:active {
+    border-bottom: solid 2px color.scale($background, $blackness: 40%);
+    margin-top: 3px;
+    margin-bottom: -3px;
+  }
+}
+
+aside {
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  *:not(svg) {
+    max-width: $min-width-small;
+  }
+  nav {
+    height: 100%;
+    width: 100%;
+    .btn-wrapper {
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff,
+          0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+        font-size: 0.7rem;
+        svg {
+          margin-right: 5px;
+          font-size: 1.2rem;
+        }
+        &#all-button {
+          @include emboss-button($color-btn-fourth);
+        }
+        &#quiz-button {
+          @include emboss-button($color-btn-primary);
+        }
+        &#pokemon-collection-button {
+          @include emboss-button($color-btn-secondary);
+        }
+        &#how-to-button {
+          @include emboss-button($color-btn-tertiary);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $min-width-small) {
+  aside {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4%;
+    height: 60px;
+    nav {
+      .btn-wrapper {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        flex-wrap: nowrap;
+        .btn {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}

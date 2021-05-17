@@ -1,0 +1,33 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: initial;
+}
+
+body {
+  background: linear-gradient(
+    to bottom right,
+    color.scale($color-theme-pink, $lightness: 70%),
+    color.scale($color-theme-pink)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#root {
+  height: 100vh;
+  position: relative;
+}

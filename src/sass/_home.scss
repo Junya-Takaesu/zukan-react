@@ -1,0 +1,30 @@
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  max-width: $min-width-small;
+  margin: 0 auto;
+  padding-bottom: 14%;
+  article {
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+    );
+    img {
+      height: 100px;
+    }
+    ul {
+      list-style-type: none;
+    }
+  }
+}
+
+@media (min-width: $min-width-xsmall) {
+  .home-wrapper {
+    grid-template-columns: repeat(auto-fill, 180px);
+  }
+}
