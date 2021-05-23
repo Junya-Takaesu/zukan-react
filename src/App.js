@@ -1,5 +1,6 @@
 import "./App.css";
 import Home from "./home";
+import Quiz from "./quiz";
 import Navigation from "./navigation";
 import BGBall from "./bgBall";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -13,6 +14,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route path="/" component={Home} exact />
+        <Route path="/quiz" component={Quiz} exact />
       </Switch>
     </Router>
   );

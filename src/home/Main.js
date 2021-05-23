@@ -6,7 +6,14 @@ const Main = () => {
   const [pokemons, setPokemons] = useState([]);
 
   const fetchPokemonJson = async () => {
-    setPokemons(pokemonsJson.slice(0, 40));
+    setPokemons(pokemonsJson.slice(0, 10));
+  };
+
+  const isInView = (el) => {
+    const box = el.getBoundingClientRect();
+    const viewPortTop = window.innerHeight;
+    const viewPortBottom = 0;
+    return viewPortBottom <= box.bottom && box.top < viewPortTop;
   };
 
   useEffect(() => {
